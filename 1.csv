@@ -1,10 +1,10 @@
-IP地址	已发送	已接收	丢包率	平均延迟	下载速度	测速时间
-172.64.148.122	4	4	0.0%	134.25	27.08MB/s	2024-03-23 10:46:15
-104.16.173.225	4	4	0.0%	134.79	26.05MB/s	2024-03-23 10:46:15
-104.18.229.37	4	4	0.0%	131.8	22.04MB/s	2024-03-23 10:46:15
-104.17.116.188	4	4	0.0%	134.49	21.83MB/s	2024-03-23 10:46:15
-104.19.158.190	4	4	0.0%	134.78	21.39MB/s	2024-03-23 10:46:15
-104.16.18.95	4	4	0.0%	135.84	20.97MB/s	2024-03-23 10:46:15
-104.16.56.134	4	4	0.0%	134.09	17.21MB/s	2024-03-23 10:46:15
-104.17.112.89	4	4	0.0%	135.37	12.95MB/s	2024-03-23 10:46:15
-104.19.33.96	4	4	0.0%	135.26	12.65MB/s	2024-03-23 10:46:15
+IP地址	端口	TLS	数据中心	国家	地区	城市	ASN	ORG	延迟(ms)	速度(MB/s)
+8.218.143.10	2082	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	120	28.44
+47.74.26.196	8080	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	300	23.4
+47.245.40.55	2095	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	296	22.58
+183.232.159.226	2052	FALSE	SEA	US	North America	Seattle	56040	China Mobile communications corporation	378	16.12
+183.232.159.172	58888	FALSE	HKG	HK	Asia Pacific	Hong Kong	56040	China Mobile communications corporation	196	14.48
+8.218.143.10	8080	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	124	13.14
+8.217.248.220	2095	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	127	11.88
+183.232.159.226	887	FALSE	SEA	US	North America	Seattle	56040	China Mobile communications corporation	385	11.64
+8.217.248.220	2082	FALSE	HKG	HK	Asia Pacific	Hong Kong	45102	Alibaba US Technology Co., Ltd.	119	11.26
