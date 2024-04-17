@@ -6,29 +6,47 @@
 	},
 	"dns": {
 		"servers": [{
-				"address": "https://223.5.5.5/dns-query",
-				"detour": "➡️直连",
-				"tag": "alidns",
-				"strategy": "prefer_ipv4"
-			},
-			{
+				"tag": "dns_proxy",
 				"address": "tls://8.8.8.8",
-				"detour": "🌐代理",
-				"tag": "cloudflare",
-				"strategy": "prefer_ipv4"
+				"address_resolver": "dns_resolver",
+				"strategy": "ipv4_only",
+				"detour": "🌐代理"
 			},
 			{
-				"address": "rcode://success",
-				"tag": "block"
+				"tag": "dns_direct",
+				"address": "tls://dns.alidns.com",
+				"address_resolver": "dns_resolver",
+				"strategy": "ipv4_only",
+				"detour": "➡️直连"
+			},
+			{
+				"tag": "dns_resolver",
+				"address": "223.5.5.5",
+				"detour": "direct"
+			},
+			{
+				"tag": "dns_success",
+				"address": "rcode://success"
+			},
+			{
+				"tag": "dns_refused",
+				"address": "rcode://refused"
+			},
+			{
+				"tag": "dns_fakeip",
+				"address": "fakeip"
 			}
+
 		],
 		"rules": [{
+				"outbound": "any",
+				"server": "dns_resolver"
+				// 注释：对于任何出站连接（不管是直接连接还是通过代理），使用 "dns_resolver" 服务器进行 DNS 解析（这一句主要用来解析代理节点本身的 IP 地址）。
+			},
+			{
 				"type": "logical",
 				"mode": "or",
 				"rules": [{
-						"outbound": ["any"]
-					},
-					{
 						"clash_mode": "Direct"
 					},
 					{
@@ -38,10 +56,10 @@
 						"domain_suffix": [".cn"]
 					}
 				],
-				"server": "alidns"
+				"server": "dns_direct"
 			},
 			{
-				"server": "cloudflare",
+				"server": "dns_proxy",
 				"clash_mode": "Global"
 			},
 			{
@@ -51,7 +69,7 @@
 		],
 		"disable_cache": false,
 		"disable_expire": false,
-		"final": "cloudflare",
+		"final": "dns_direct",
 		"strategy": "prefer_ipv4"
 	},
 	"route": {
@@ -61,64 +79,64 @@
 				"format": "binary",
 				"tag": "geoip-cn",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-cn",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-private",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-category-ads-all",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-disney",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-disney.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-disney.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-netflix",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-netflix.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-netflix.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-telegram",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-openai",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-openai.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-openai.srs",
+				"download_detour": "➡️直连"
 			},
 			{
 				"format": "binary",
 				"tag": "geosite-tiktok",
 				"type": "remote",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tiktok.srs",
-				"download_detour": "🌐代理"
+				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tiktok.srs",
+				"download_detour": "➡️直连"
 			}
 		],
 		"rules": [{
@@ -457,7 +475,7 @@
 				"server_name": "35c0f45d-i.3nvz.com"
 			}
 		},
-		
+
 		{
 			"default": "香港节点",
 			"outbounds": ["香港节点", "美国节点", "🏎️Auto"],
@@ -479,7 +497,7 @@
 			"url": "https://www.gstatic.com/generate_204",
 			"tolerance": 50
 		},
-        {
+		{
 			"tag": "香港节点",
 			"type": "selector",
 			"outbounds": [
