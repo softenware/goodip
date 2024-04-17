@@ -86,7 +86,8 @@
 				"invert": true,
 				"server": "dns_refused",
 				"disable_cache": true
-			} {
+			},
+			{
 				"server": "dns_refused",
 				"rule_set": ["geosite-category-ads-all"]
 			}
@@ -103,9 +104,9 @@
 		"final": "🌐代理",
 		"auto_detect_interface": true,
 		"rule_set": [{
-				"format": "binary",
-				"tag": "geoip-cn",
 				"type": "remote",
+				"tag": "geoip-cn",
+				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
 				"download_detour": "➡️直连"
 			},
