@@ -22,7 +22,7 @@
 			{
 				"tag": "dns_resolver",
 				"address": "223.5.5.5",
-				"detour": "direct"
+				"detour": "➡️直连"
 			},
 			{
 				"tag": "dns_success",
