@@ -101,7 +101,7 @@
 		}
 	},
 	"route": {
-		"final": "🌐代理",
+		"final": "➡️直连",
 		"auto_detect_interface": true,
 		"rule_set": [{
 				"type": "remote",
