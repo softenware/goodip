@@ -22,6 +22,7 @@
 			{
 				"tag": "dns_resolver",
 				"address": "223.5.5.5",
+				"strategy": "ipv4_only",
 				"detour": "➡️直连"
 			},
 			{
@@ -40,8 +41,9 @@
 		],
 		"rules": [{
 				"outbound": "any",
-				"server": "dns_resolver"
-				// 注释：对于任何出站连接（不管是直接连接还是通过代理），使用 "dns_resolver" 服务器进行 DNS 解析（这一句主要用来解析代理节点本身的 IP 地址）。
+				"server": "dns_proxy"
+				// 注释：对于任何出站连接（不管是直接连接还是通过代理），
+			        //使用 "dns_resolver" 服务器进行 DNS 解析（这一句主要用来解析代理节点本身的 IP 地址）。
 			},
 			{
 				"type": "logical",
@@ -59,8 +61,8 @@
 				"server": "dns_direct"
 			},
 			{
-				"server": "dns_proxy",
-				"clash_mode": "Global"
+				"clash_mode": "Global",
+				"server": "dns_proxy"
 			},
 			{
 				"rule_set": "geosite-geolocation-!cn",
@@ -78,18 +80,8 @@
 				"server": "dns_proxy"
 			},
 			{
-				"query_type": [
-					"A",
-					"AAAA",
-					"CNAME"
-				],
-				"invert": true,
-				"server": "dns_refused",
-				"disable_cache": true
-			},
-			{
-				"server": "dns_refused",
-				"rule_set": ["geosite-category-ads-all"]
+				"rule_set": ["geosite-category-ads-all"],
+                                "server": "dns_refused"
 			}
 		],
 		"final": "dns_direct",
@@ -206,6 +198,9 @@
 						"domain": ["idev.dev", "www.idev.dev"]
 					},
 					{
+						"domain_suffix": ["ipaddress.my"]
+					},
+					{
 						"rule_set": ["geosite-tiktok"]
 					},
 					{
@@ -246,7 +241,6 @@
 		]
 	},
 	"inbounds": [
-		// 选其一
 		{
 			"strict_route": true,
 			"stack": "system",
@@ -275,7 +269,6 @@
 			"tag": "dns-out",
 			"type": "dns"
 		},
-		// 以下通过四个节点来演示，请替换对应的节点配置以及 selector和urltest中的outbounds(填代理节点的tag)
 		{
 			"type": "vless",
 			"tag": "icooktw",
