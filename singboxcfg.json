@@ -41,7 +41,7 @@
 		],
 		"rules": [{
 				"outbound": "any",
-				"server": "dns_proxy"
+				"server": "dns_resolver"
 				// 注释：对于任何出站连接（不管是直接连接还是通过代理），
 			        //使用 "dns_resolver" 服务器进行 DNS 解析（这一句主要用来解析代理节点本身的 IP 地址）。
 			},
