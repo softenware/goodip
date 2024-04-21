@@ -56,10 +56,10 @@
 				"clash_mode": "Global",
 				"server": "dns-remote"
 			},
-						{
+			{
 				"rule_set": ["gfw"],
                                 "server": "dns-remote"
-			}
+			},
 			{
 				"domain": "courier.push.apple.com",
 				"server": "dns-direct"
