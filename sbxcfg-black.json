@@ -4,20 +4,6 @@
 		"level": "error",
 		"timestamp": true
 	},
-	"experimental": {
-		"clash_api": {
-			"external_controller": "127.0.0.1:9090",
-			"external_ui": "yacd",
-			"external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-			"external_ui_download_detour": "direct",
-			"default_mode": "rule"
-		},
-		"cache_file": {
-			"enabled": true,
-			"path": "cache.db",
-			"store_fakeip": false
-		}
-	},
 	"dns": {
 		"servers": [{
 				"tag": "dns-remote",
