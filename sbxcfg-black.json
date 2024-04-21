@@ -21,7 +21,7 @@
 	"dns": {
 		"servers": [{
 				"tag": "dns-remote",
-				"address": "https://1.1.1.1/dns-query",
+				"address": "tls://8.8.8.8",
 				"address_resolver": "dns-direct",
 				"strategy": "ipv4_only",
 				"detour": "proxy"
@@ -56,6 +56,10 @@
 				"clash_mode": "Global",
 				"server": "dns-remote"
 			},
+						{
+				"rule_set": ["gfw"],
+                                "server": "dns-remote"
+			}
 			{
 				"domain": "courier.push.apple.com",
 				"server": "dns-direct"
