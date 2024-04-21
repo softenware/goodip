@@ -55,7 +55,7 @@
 			{
 				"clash_mode": "Global",
 				"server": "dns-remote"
-			},
+			},			
 			{
 				"rule_set": ["gfw"],
                                 "server": "dns-remote"
