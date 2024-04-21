@@ -1,7 +1,7 @@
 {
 	"log": {
 		"disabled": false,
-		"level": "info",
+		"level": "error",
 		"timestamp": true
 	},
 	"experimental": {
@@ -459,12 +459,7 @@
 			},
 			{
 				"rule_set": [
-					"geosite-category-ads-all",
-					"geosite-malware",
-					"geosite-phishing",
-					"geosite-cryptominers",
-					"geoip-malware",
-					"geoip-phishing"
+					"geosite-category-ads-all"
 				],
 				"outbound": "block"
 			}
@@ -485,59 +480,11 @@
 				"download_detour": "direct",
 				"update_interval": "1d"
 			},
-                         {
-        "tag": "Global",
-        "type": "remote",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/Global.json",
-        "download_detour": "direct"
-      },
 			{
 				"tag": "geosite-category-ads-all",
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-				"download_detour": "direct",
-				"update_interval": "1d"
-			},
-
-			{
-				"tag": "geosite-malware",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-malware.srs",
-				"download_detour": "direct",
-				"update_interval": "1d"
-			},
-			{
-				"tag": "geosite-phishing",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-phishing.srs",
-				"download_detour": "direct",
-				"update_interval": "1d"
-			},
-			{
-				"tag": "geosite-cryptominers",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cryptominers.srs",
-				"download_detour": "direct",
-				"update_interval": "1d"
-			},
-			{
-				"tag": "geoip-malware",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-malware.srs",
-				"download_detour": "direct",
-				"update_interval": "1d"
-			},
-			{
-				"tag": "geoip-phishing",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-phishing.srs",
 				"download_detour": "direct",
 				"update_interval": "1d"
 			},
